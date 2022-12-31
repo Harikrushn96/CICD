@@ -21,7 +21,7 @@
       <name>project-1</name>
       <url>http://192.168.33.22:8081/repository/project-1/</url>
     </repository>
-</distributionManagement>
+  </distributionManagement>
   <build>
     <finalName>01-maven-web-app</finalName>
     <plugins>
