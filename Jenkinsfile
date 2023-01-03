@@ -22,7 +22,7 @@ pipeline {
         stage ('PushtoNexus') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'nexus-token', url: 'http://44.201.201.144:8081/repository/dockerimg/') {
+                    withDockerRegistry(credentialsId: 'nexus-token', url: 'http://44.201.201.144:8081') {
                         sh 'docker push first:latest'
                     }
                 }
