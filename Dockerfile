@@ -1,6 +1,6 @@
 FROM harikrushn96/tomcat9
 
-COPY /var/lib/jenkins/workspace/shell/target/01-maven-web-app.war /opt/tomcat/webapps/
+COPY /var/lib/jenkins/workspace/shell/target/01-maven-web-app.war /opt/tomcat/webapps/01-maven-web-app.war
 
 EXPOSE 8080
 
