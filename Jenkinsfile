@@ -16,14 +16,16 @@ pipeline {
         }
         stage ('docker build') {
             steps {
-                sh 'docker build -t first:latest .'
+                sh 'docker build -t 44.201.201.144:8083/first:latest .'
             }
         }
         stage ('PushtoNexus') {
             steps {
                 script {
-                    docker.withRegistry('http://44.201.201.144:8081/repository/dockerimg/', 'nexus-token') {
-                        docker.image('first:latest').push()
+                    sh '''
+                        docker login -u admin -p admin123 44.201.201.144:8083
+                        docker push 44.201.201.144:8083/first:latest
+                        '''
                     }
                 }
             }
