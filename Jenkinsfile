@@ -21,8 +21,10 @@ pipeline {
         }
         stage ('PushtoNexus') {
             steps {
-                docker.withRegistry('http://44.201.201.144:8081/repository/dockerimg/', 'nexus-token') {
-                    docker.image('first:latest').push()
+                script {
+                    docker.withRegistry('http://44.201.201.144:8081/repository/dockerimg/', 'nexus-token') {
+                        docker.image('first:latest').push()
+                    }
                 }
             }
         }
