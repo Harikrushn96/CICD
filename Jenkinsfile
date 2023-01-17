@@ -11,7 +11,7 @@ pipeline {
         }
         stage ('docker build') {
             steps {
-                sh 'docker build -t 54.205.225.212:8083/first:latest .'
+                sh 'docker build -t $nexus_ip/first:latest .'
             }
         }
         stage ('PushtoNexus') {
@@ -19,8 +19,8 @@ pipeline {
                 script {
                     sh '''
                         docker login -u admin -p admin123 54.205.225.212:8083
-                        docker push 54.205.225.212:8083/first:latest
-                        docker rmi 54.205.225.212:8083/first:latest
+                        docker push $nexus_ip/first:latest
+                        docker rmi $nexus_ip/first:latest
                         '''
              }
           }
